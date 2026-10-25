@@ -27,5 +27,6 @@
     "type": "git",
     "url": "https://github.com/Robert0303-C/screenrec-agent.git"
   },
-  "homepage": "https://github.com/Robert0303-C/screenrec-agent#readme"
+  "homepage": "https://github.com/Robert0303-C/screenrec-agent#readme",
+  "mcpName": "io.github.Robert0303-C/screenrec-agent"
 }
