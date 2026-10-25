@@ -1,0 +1,31 @@
+{
+  "name": "screenrec-agent",
+  "version": "0.1.0",
+  "description": "MCP server: record a real browser page and cut it into a publishable vertical video.",
+  "bin": {
+    "screenrec-agent": "bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "README.md"
+  ],
+  "os": [
+    "win32"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "screen-recorder",
+    "video",
+    "ai-agents"
+  ],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Robert0303-C/screenrec-agent.git"
+  },
+  "homepage": "https://github.com/Robert0303-C/screenrec-agent#readme"
+}
