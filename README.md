@@ -65,6 +65,26 @@ beside it (only `compose_clip` needs ffmpeg), and point `command` at the exe.
 
 Published in the official MCP Registry as `io.github.Robert0303-C/screenrec-agent`.
 
+## Pricing
+
+| | Free | Full — $39 once |
+|---|---|---|
+| `recorder_*` — record with your agent | unlimited, forever | unlimited |
+| `compose_clip` — turn a recording into a finished clip | **24 hours / 5 clips** | unlimited |
+| Runs locally, nothing uploaded | yes | yes |
+
+The trial starts on your first **successful** compose, not on install. When it ends, `compose_clip`
+returns `license_required` with a purchase link — recording keeps working, nothing is deleted, nothing
+crashes. Check what is left with `screenrec-agent --status`, unlock with
+`screenrec-agent --activate <KEY>`.
+
+**The only network call is activation itself.** Trial state lives on your machine (three copies, clock
+rollback detection) because the alternative is a server that watches you use it. Deleting all three
+copies is equivalent to a fresh install — offline software cannot prevent that, and we would rather be
+honest about it than ship surveillance.
+
+Buy: https://creem.io/store/screenrec-agent
+
 ## The one gesture Chrome insists on
 
 `chrome.tabCapture` needs `activeTab`, and `activeTab` only comes from invoking the extension on that tab.
