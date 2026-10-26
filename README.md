@@ -2,7 +2,7 @@
 
 **Let your AI agent record a real browser page and cut it into a publishable vertical video.**
 
-An MCP server for Claude Code, Cursor, Codex and Hermes. Your agent records a page over CDP (no browser
+**By xukunAI** · an MCP server for Claude Code, Cursor, Codex and Hermes. Your agent records a page over CDP (no browser
 extension, no permission dialog), then composes the clip: device frame, held-frame callouts, punch-ins,
 captions, music with real ducking, end card.
 
@@ -83,7 +83,7 @@ rollback detection) because the alternative is a server that watches you use it.
 copies is equivalent to a fresh install — offline software cannot prevent that, and we would rather be
 honest about it than ship surveillance.
 
-Buy: https://creem.io/store/screenrec-agent
+Buy: https://creem.io/store/screenrec-agent  ·  xukun.online
 
 ## The one gesture Chrome insists on
 
