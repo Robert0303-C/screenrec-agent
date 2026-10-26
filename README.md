@@ -35,21 +35,35 @@ suggestion.
 
 ## Install
 
-1. Download `screenrec-agent-v0.1.0-win64.zip` from Releases
-2. Unzip anywhere (e.g. `D:\ScreenRecAgent`)
-3. Add to your MCP client config:
+**npx (recommended)** — works in Claude Code, Cursor, Codex, Hermes and any MCP client:
 
 ```json
 {
   "mcpServers": {
     "screen-recorder": {
-      "command": "D:\\ScreenRecAgent\\screenrec-agent.exe"
+      "command": "npx",
+      "args": ["-y", "screenrec-agent"]
     }
   }
 }
 ```
 
-4. `screenrec-agent.exe --selftest` to verify the install
+Then verify the install:
+
+```
+npx -y screenrec-agent --selftest
+```
+
+First run downloads the agent (~33 MB) and a pinned ffmpeg build (~201 MB) into
+`%LOCALAPPDATA%\screenrec-agent\bin`. The cache is reused afterwards, and upgrading the launcher
+re-downloads only the agent — ffmpeg is not fetched again. Downloads resume and retry on a dropped
+connection instead of failing silently.
+
+**Or use the exe directly.** Download `screenrec-agent.exe` from the
+[latest release](https://github.com/Robert0303-C/screenrec-agent/releases/latest), put `ffmpeg.exe`
+beside it (only `compose_clip` needs ffmpeg), and point `command` at the exe.
+
+Published in the official MCP Registry as `io.github.Robert0303-C/screenrec-agent`.
 
 ## The one gesture Chrome insists on
 
