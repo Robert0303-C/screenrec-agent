@@ -83,7 +83,7 @@ rollback detection) because the alternative is a server that watches you use it.
 copies is equivalent to a fresh install — offline software cannot prevent that, and we would rather be
 honest about it than ship surveillance.
 
-Buy: https://creem.io/store/screenrec-agent  ·  xukun.online
+Buy: https://www.creem.io/product/prod_57FG0V8N2N4z3PrCzK0Klr  ·  xukun.online
 
 ## The one gesture Chrome insists on
 
