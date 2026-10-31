@@ -8,6 +8,24 @@ captions, music with real ducking, end card.
 
 Everything runs locally. No upload, no API key, no cloud render.
 
+## Two recordings, one canvas
+
+`split` puts a second recording next to the first — **stacked in 9:16, side by side in 16:9**,
+with `ratio` and `gap` to tune it. The direction follows the canvas, so the agent never has to
+choose. Captions, callouts, end card and music still apply in the same call.
+
+<img src="docs/assets/split-vertical.gif" width="230" alt="9:16 stacked split">
+<img src="docs/assets/split-landscape.gif" width="400" alt="16:9 side-by-side split">
+
+```json
+{ "target": "vertical",
+  "split": { "source": "C:/rec/second.webm", "ratio": 0.5, "gap": 6 },
+  "captions": [{ "start": 0.8, "end": 5.0, "text": "before / after" }] }
+```
+
+Full guides: **[English](docs/USAGE.md)** · **[中文](docs/USAGE.zh.md)**
+
+
 ```
 录制 → 设备框 → 冻结圈注 → 局部放大 → 字幕 → 结尾卡 → 成片
 ```
@@ -31,7 +49,7 @@ suggestion.
 | `compose_clip` | the actual product: record → finished video |
 
 `compose_clip` takes `captions`, `annotations` (held-frame callouts), `focus` (punch-ins), `end_title`,
-`music`, `frame` (phone/browser), `pip` (picture-in-picture).
+`music`, `frame` (phone/browser), `pip` (picture-in-picture), `split` (second recording on the same canvas).
 
 ## Install
 

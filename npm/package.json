@@ -1,6 +1,6 @@
 {
   "name": "screenrec-agent",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "MCP server: record a real browser page and cut it into a publishable vertical video.",
   "bin": {
     "screenrec-agent": "bin/cli.js"
