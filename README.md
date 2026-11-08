@@ -103,6 +103,9 @@ honest about it than ship surveillance.
 
 Buy: https://www.creem.io/product/prod_57FG0V8N2N4z3PrCzK0Klr  ·  xukun.online
 
+**Want the clip instead of the tool?** I record the page, cut it and caption it myself, and send
+back one finished vertical video. No install, no trial, no license — alex@saas.pet
+
 ## The one gesture Chrome insists on
 
 `chrome.tabCapture` needs `activeTab`, and `activeTab` only comes from invoking the extension on that tab.
@@ -127,8 +130,13 @@ No script can fake it (verified: even a trusted CDP click inside an extension pa
 
 ## License
 
-Commercial. Source available for review; redistribution of the packaged binary is not permitted.
+Two different things ship in this repository, so two different licenses:
 
-## License
+- **The npm shell** (`npm/bin/cli.js`, the ~14 KB downloader that fetches the binary and forwards
+  stdio) is **MIT**. See [LICENSE](LICENSE). Use it, fork it, ship it inside your own tool.
+- **`screenrec-agent.exe`**, which the shell downloads and runs, is **commercial and closed
+  source**. The trial, the activation and `compose_clip` all live inside that binary, none of it is
+  in this repository, and none of it is covered by the MIT grant.
 
-MIT (c) 2026 Alex Liu. See [LICENSE](LICENSE).
+That split is deliberate: the part that makes the package installable in one command is free for
+anyone to copy; the part that does the work is the product.
