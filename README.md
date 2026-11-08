@@ -128,3 +128,7 @@ No script can fake it (verified: even a trusted CDP click inside an extension pa
 ## License
 
 Commercial. Source available for review; redistribution of the packaged binary is not permitted.
+
+## License
+
+MIT (c) 2026 Alex Liu. See [LICENSE](LICENSE).

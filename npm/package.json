@@ -22,11 +22,12 @@
     "video",
     "ai-agents"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Robert0303-C/screenrec-agent.git"
   },
   "homepage": "https://github.com/Robert0303-C/screenrec-agent#readme",
-  "mcpName": "io.github.Robert0303-C/screenrec-agent"
+  "mcpName": "io.github.Robert0303-C/screenrec-agent",
+  "author": "Alex Liu"
 }
