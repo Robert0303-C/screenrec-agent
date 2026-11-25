@@ -8,6 +8,10 @@ captions, music with real ducking, end card.
 
 Everything runs locally. No upload, no API key, no cloud render.
 
+[![Screen Recorder MCP in 46 seconds](https://citeai.tech/media/screenrec-demo-poster.jpg)](https://citeai.tech/media/screenrec-demo.mp4)
+
+**▶ [46-second demo](https://citeai.tech/media/screenrec-demo.mp4)** — recording, the two split frames, and what compose adds, with the narration on.
+
 **Windows 10/11 x64 only.** Start here:
 
 ```
