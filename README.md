@@ -14,6 +14,8 @@ Everything runs locally. No upload, no API key, no cloud render.
 npx -y screenrec-agent --selftest
 ```
 
+**Recording is free forever.** `compose_clip` runs on a 24h / 5-clip trial, then **$39 once** unlocks it for good — [buy here](https://whop.com/checkout/plan_Vu0jw3rmLagmv). No subscription, no account, nothing uploaded.
+
 ## Two recordings, one canvas
 
 `split` puts a second recording next to the first — **stacked in 9:16, side by side in 16:9**,
@@ -107,6 +109,8 @@ because the alternative is a server that watches you use it. An offline trial ca
 someone determined enough; we would rather say that plainly than ship surveillance.
 
 Buy: https://whop.com/checkout/plan_Vu0jw3rmLagmv  ·  xukun.online
+
+**If you tried to buy before 25 November 2026 and could not:** the checkout link on this page pointed at a disabled product for weeks. That was our bug, not a pricing decision. Write to alex@saas.pet and I will sort it out — including for anyone who gave up and never came back.
 
 **Want the clip instead of the tool?** I record the page, cut it and caption it myself, and send
 back one finished vertical video. No install, no trial, no license — alex@saas.pet
