@@ -8,6 +8,12 @@ captions, music with real ducking, end card.
 
 Everything runs locally. No upload, no API key, no cloud render.
 
+**Windows 10/11 x64 only.** Start here:
+
+```
+npx -y screenrec-agent --selftest
+```
+
 ## Two recordings, one canvas
 
 `split` puts a second recording next to the first — **stacked in 9:16, side by side in 16:9**,
@@ -101,7 +107,7 @@ rollback detection) because the alternative is a server that watches you use it.
 copies is equivalent to a fresh install — offline software cannot prevent that, and we would rather be
 honest about it than ship surveillance.
 
-Buy: https://www.creem.io/product/prod_57FG0V8N2N4z3PrCzK0Klr  ·  xukun.online
+Buy: https://whop.com/checkout/plan_Vu0jw3rmLagmv  ·  xukun.online
 
 **Want the clip instead of the tool?** I record the page, cut it and caption it myself, and send
 back one finished vertical video. No install, no trial, no license — alex@saas.pet
