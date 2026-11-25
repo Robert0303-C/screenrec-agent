@@ -102,10 +102,9 @@ returns `license_required` with a purchase link — recording keeps working, not
 crashes. Check what is left with `screenrec-agent --status`, unlock with
 `screenrec-agent --activate <KEY>`.
 
-**The only network call is activation itself.** Trial state lives on your machine (three copies, clock
-rollback detection) because the alternative is a server that watches you use it. Deleting all three
-copies is equivalent to a fresh install — offline software cannot prevent that, and we would rather be
-honest about it than ship surveillance.
+**The only network call is activation itself.** Trial state lives on your machine, not on a server,
+because the alternative is a server that watches you use it. An offline trial can always be reset by
+someone determined enough; we would rather say that plainly than ship surveillance.
 
 Buy: https://whop.com/checkout/plan_Vu0jw3rmLagmv  ·  xukun.online
 
