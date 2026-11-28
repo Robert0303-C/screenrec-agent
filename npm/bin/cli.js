@@ -24,7 +24,7 @@ const OWNER = process.env.SCREENREC_OWNER || "Robert0303-C";
 const REPO = process.env.SCREENREC_REPO || "screenrec-agent";
 // 这是【exe 所在的 release tag】，不是 npm 包版本。外壳 0.1.2 复用同一个 exe，
 // 用户升级外壳时缓存目录不变，不会重新下载 234 MB。
-const VERSION = process.env.SCREENREC_VERSION || "v0.1.4";
+const VERSION = process.env.SCREENREC_VERSION || "v0.1.5";
 
 const BASE_URL =
   process.env.SCREENREC_BASE_URL ||
