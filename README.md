@@ -61,7 +61,12 @@ suggestion.
 | `compose_clip` | the actual product: record → finished video |
 
 `compose_clip` takes `captions`, `annotations` (held-frame callouts), `focus` (punch-ins), `end_title`,
-`music`, `frame` (phone/browser), `pip` (picture-in-picture), `split` (second recording on the same canvas).
+`music`, `frame` (phone/browser), `pip` (picture-in-picture), `split` (second recording on the same canvas),
+and `trim_tail` (default on).
+
+`trim_tail` cuts the end of a recording where the picture has stopped changing — the six seconds of a cursor
+hovering over nothing that every agent demo ends with. It only removes a genuinely static run, never more
+than a third of the clip or six seconds, and it reports what it cut as `trimmed_sec` in the result.
 
 ## Install
 
@@ -106,7 +111,8 @@ Published in the official MCP Registry as `io.github.Robert0303-C/screenrec-agen
 The trial starts on your first **successful** compose, not on install. When it ends, `compose_clip`
 returns `license_required` with a purchase link — recording keeps working, nothing is deleted, nothing
 crashes. Check what is left with `screenrec-agent --status`, unlock with
-`screenrec-agent --activate <KEY>`.
+`screenrec-agent --activate <KEY>`. The key is emailed after payment and it verifies offline, so activation
+needs no network and no account.
 
 **The only network call is activation itself.** Trial state lives on your machine, not on a server,
 because the alternative is a server that watches you use it. An offline trial can always be reset by
