@@ -1,0 +1,161 @@
+# Screen Recorder MCP
+
+**Let your AI agent record a real browser page and cut it into a publishable vertical video.**
+
+**By xukunAI** · an MCP server for Claude Code, Cursor, Codex and Hermes. Your agent records a page over CDP (no browser
+extension, no permission dialog), then composes the clip: device frame, held-frame callouts, punch-ins,
+captions, music with real ducking, end card.
+
+Everything runs locally. No upload, no API key, no cloud render.
+
+[![Screen Recorder MCP in 46 seconds](https://citeai.tech/media/screenrec-demo-poster.jpg)](https://citeai.tech/media/screenrec-demo.mp4)
+
+**▶ [46-second demo](https://citeai.tech/media/screenrec-demo.mp4)** — recording, the two split frames, and what compose adds, with the narration on.
+
+**Windows 10/11 x64 only.** Start here:
+
+```
+npx -y screenrec-agent --selftest
+```
+
+**Recording is free forever.** `compose_clip` runs on a 24h / 5-clip trial, then **$39 once** unlocks it for good — [buy here](https://whop.com/checkout/plan_Vu0jw3rmLagmv). No subscription, no account, nothing uploaded.
+
+## Two recordings, one canvas
+
+`split` puts a second recording next to the first — **stacked in 9:16, side by side in 16:9**,
+with `ratio` and `gap` to tune it. The direction follows the canvas, so the agent never has to
+choose. Captions, callouts, end card and music still apply in the same call.
+
+<img src="docs/assets/split-vertical.gif" width="230" alt="9:16 stacked split">
+<img src="docs/assets/split-landscape.gif" width="400" alt="16:9 side-by-side split">
+
+```json
+{ "target": "vertical",
+  "split": { "source": "C:/rec/second.webm", "ratio": 0.5, "gap": 6 },
+  "captions": [{ "start": 0.8, "end": 5.0, "text": "before / after" }] }
+```
+
+Full guides: **[English](docs/USAGE.md)** · **[中文](docs/USAGE.zh.md)**
+
+
+```
+录制 → 设备框 → 冻结圈注 → 局部放大 → 字幕 → 结尾卡 → 成片
+```
+
+## Why this exists
+
+Every "AI video" tool generates pixels and hopes the text survives. This one doesn't generate anything:
+it records your actual UI and draws text with a font engine. **Every digit is your real number.**
+
+The agent-facing part is the point: an agent can produce a finished clip as a tool call, not a chat
+suggestion.
+
+## Tools
+
+| Tool | What it does |
+|---|---|
+| `recorder_status` | recording state, bytes, bridge status |
+| `recorder_start` | start recording a tab (Chrome requires one human click — see below) |
+| `recorder_stop` | stop and save to Downloads |
+| `recorder_files` | list recent recordings |
+| `compose_clip` | the actual product: record → finished video |
+
+`compose_clip` takes `captions`, `annotations` (held-frame callouts), `focus` (punch-ins), `end_title`,
+`music`, `frame` (phone/browser), `pip` (picture-in-picture), `split` (second recording on the same canvas),
+and `trim_tail` (default on).
+
+`trim_tail` cuts the end of a recording where the picture has stopped changing — the six seconds of a cursor
+hovering over nothing that every agent demo ends with. It only removes a genuinely static run, never more
+than a third of the clip or six seconds, and it reports what it cut as `trimmed_sec` in the result.
+
+## Install
+
+**npx (recommended)** — works in Claude Code, Cursor, Codex, Hermes and any MCP client:
+
+```json
+{
+  "mcpServers": {
+    "screen-recorder": {
+      "command": "npx",
+      "args": ["-y", "screenrec-agent"]
+    }
+  }
+}
+```
+
+Then verify the install:
+
+```
+npx -y screenrec-agent --selftest
+```
+
+First run downloads the agent (~33 MB) and a pinned ffmpeg build (~201 MB) into
+`%LOCALAPPDATA%\screenrec-agent\bin`. The cache is reused afterwards, and upgrading the launcher
+re-downloads only the agent — ffmpeg is not fetched again. Downloads resume and retry on a dropped
+connection instead of failing silently.
+
+**Or use the exe directly.** Download `screenrec-agent.exe` from the
+[latest release](https://github.com/Robert0303-C/screenrec-agent/releases/latest), put `ffmpeg.exe`
+beside it (only `compose_clip` needs ffmpeg), and point `command` at the exe.
+
+Published in the official MCP Registry as `io.github.Robert0303-C/screenrec-agent`.
+
+## Pricing
+
+| | Free | Full — $39 once |
+|---|---|---|
+| `recorder_*` — record with your agent | unlimited, forever | unlimited |
+| `compose_clip` — turn a recording into a finished clip | **24 hours / 5 clips** | unlimited |
+| Runs locally, nothing uploaded | yes | yes |
+
+The trial starts on your first **successful** compose, not on install. When it ends, `compose_clip`
+returns `license_required` with a purchase link — recording keeps working, nothing is deleted, nothing
+crashes. Check what is left with `screenrec-agent --status`, unlock with
+`screenrec-agent --activate <KEY>`. The key is emailed after payment and it verifies offline, so activation
+needs no network and no account.
+
+**The only network call is activation itself.** Trial state lives on your machine, not on a server,
+because the alternative is a server that watches you use it. An offline trial can always be reset by
+someone determined enough; we would rather say that plainly than ship surveillance.
+
+Buy: https://whop.com/checkout/plan_Vu0jw3rmLagmv  ·  xukun.online
+
+**If you tried to buy before 25 November 2026 and could not:** the checkout link on this page pointed at a disabled product for weeks. That was our bug, not a pricing decision. Write to alex@saas.pet and I will sort it out — including for anyone who gave up and never came back.
+
+**Want the clip instead of the tool?** I record the page, cut it and caption it myself, and send
+back one finished vertical video. No install, no trial, no license — alex@saas.pet
+
+## The one gesture Chrome insists on
+
+`chrome.tabCapture` needs `activeTab`, and `activeTab` only comes from invoking the extension on that tab.
+No script can fake it (verified: even a trusted CDP click inside an extension page fails). So:
+
+- **Page recording** (CDP) — fully autonomous, no click, no extension
+- **Desktop + microphone recording** (extension) — the human clicks the toolbar icon once, the agent
+  handles everything after
+
+## Requirements
+
+- Windows 10/11 x64
+- ~300 MB disk
+- An MCP client
+
+## Roadmap
+
+- [x] CDP recording, freeze-frame callouts, punch-ins
+- [x] Device frame, captions, end card, music ducking, picture-in-picture
+- [ ] Voice-over (piper, EN + ZH) — Full edition
+- [ ] macOS
+
+## License
+
+Two different things ship in this repository, so two different licenses:
+
+- **The npm shell** (`npm/bin/cli.js`, the ~14 KB downloader that fetches the binary and forwards
+  stdio) is **MIT**. See [LICENSE](LICENSE). Use it, fork it, ship it inside your own tool.
+- **`screenrec-agent.exe`**, which the shell downloads and runs, is **commercial and closed
+  source**. The trial, the activation and `compose_clip` all live inside that binary, none of it is
+  in this repository, and none of it is covered by the MIT grant.
+
+That split is deliberate: the part that makes the package installable in one command is free for
+anyone to copy; the part that does the work is the product.
